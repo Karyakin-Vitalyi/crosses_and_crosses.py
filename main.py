@@ -1,26 +1,46 @@
+def check_winner() :
+    if area  [0][0] == 'X' and [0][1] == 'X' and [0][2] == 'X':
+        return "X"
+    if area  [1][0] == 'X' and [1][1] == 'X' and [1][2] == 'X':
+        return "X"
+    if area  [2][0] == 'X' and [2][1] == 'X' and [2][2] == 'X':
+        return "X"
 
-# Функция для проверки выигрыша
-def check_winner(board):
-    # Проверяем строки
-    for row in board:
-        if row.count('X') == 3 or row.count('O') == 3:
-            return True
-    # Проверяем столбцы
-    for i in range(3):
-        col = [board[j][i] for j in range(3)]
-        if col.count('X') == 3 or col.count('O') == 3:
-            return True
-    # Проверяем диагонали
-    diag1 = [board[i][i] for i in range(3)]
-    if diag1.count('X') == 3 or diag1.count('O') == 3:
-        return True
-    diag2 = [board[i][2 - i] for i in range(3)]
-    if diag2.count('X') == 3 or diag2.count('O') == 3:
-        return True
-    return False
+    if area  [0][0] == 'X' and [1][0] == 'X' and [2][0] == 'X':
+        return "X"
+    if area  [0][1] == 'X' and [1][1] == 'X' and [2][1] == 'X':
+        return "X"
+    if area  [0][2] == 'X' and [1][2] == 'X' and [2][2] == 'X':
+        return "X"
+
+    if area  [0][0] == 'X' and [1][1] == 'X' and [2][2] == 'X':
+        return "X"
+    if area  [0][2] == 'X' and [1][1] == 'X' and [2][0] == 'X':
+        return "X"
+
+    if area[0][0] == 'O' and [0][1] == 'O' and [0][2] == 'O':
+        return 'O'
+    if area[1][0] == 'O' and [1][1] == 'O' and [1][2] == 'O':
+        return 'O'
+    if area[2][0] == 'O' and [2][1] == 'O' and [2][2] == 'O':
+        return 'O'
+
+    if area[0][0] == 'O' and [1][0] == 'O' and [2][0] == 'O':
+        return 'O'
+    if area[0][1] == 'O' and [1][1] == 'O' and [2][1] == 'O':
+        return'O'
+    if area[0][2] == 'O' and [1][2] == 'O' and [2][2] == 'O':
+        return 'O'
+
+    if area[0][0] == 'O' and [1][1] == 'O' and [2][2] == 'O':
+        return 'O'
+    if area[0][2] == 'O' and [1][1] == 'O' and [2][0] == 'O':
+        return 'O'
+
+    return '*'
 
 
-def drow_area():
+def draw_area():
     for i in area:
         print(*i)
     print()
@@ -28,9 +48,9 @@ def drow_area():
 area =[['*','*','*'] , ['*','*','*'] , ['*','*','*']]
 print('Давайте сыграем в крестики нолики:')
 print('----------------------------------')
-drow_area()
+draw_area()
 for turn in range (1 , 10):
-    print(f'Ход  : {turn}')
+    print(f'Ход : {turn}')
     if turn % 2 == 0:
         turn_char = "0"
         print("Ход второго игрока")
@@ -44,36 +64,19 @@ for turn in range (1 , 10):
         area [row] [column] = turn_char
     else:
         print('Ячейка занята , Вы пропускаете ход! ')
-        drow_area()
-        continue
-    drow_area()
-''''''
-
-def draw_area():
-    for i in area:
-        print(*i)
-    print()
-
-area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
-print('Давайте сыграем в крестики нолики:')
-print('----------------------------------')
-draw_area()
-
-for turn in range(1, 10):
-    print(f'Ход  : {turn}')
-    if turn % 2 == 0:
-        turn_char = "0"
-        print("Ход второго игрока")
-    else:
-        turn_char = 'Х'
-        print("Ход первого игрока")
-
-    row = int(input('Введите номер по горизонтали (1, 2, 3): ')) - 1
-    column = int(input('Введите номер по вертикали (1, 2, 3): ')) - 1
-    if area[row][column] == '*':
-        area[row][column] = turn_char
-    else:
-        print('Ячейка занята, Вы пропускаете ход!')
         draw_area()
         continue
+
     draw_area()
+
+    if check_winner()  == 'X':
+        print('Победа Первого Игрока: ')
+        break
+
+    if check_winner()  == 'O':
+        print('Победа Второго Игрока: ')
+        break
+
+    if check_winner() == '*'  and turn == 9:
+        print('НИЧЬЯ:)')
+        break
