@@ -1,40 +1,40 @@
-def check_winner() :
-    if area  [0][0] == 'X' and [0][1] == 'X' and [0][2] == 'X':
+def check_winner():
+    if area [0][0] == 'X' and area [0][1] == 'X' and area [0][2] == 'X':
         return "X"
-    if area  [1][0] == 'X' and [1][1] == 'X' and [1][2] == 'X':
+    if area  [1][0] == 'X' and area [1][1] == 'X' and area [1][2] == 'X':
         return "X"
-    if area  [2][0] == 'X' and [2][1] == 'X' and [2][2] == 'X':
-        return "X"
-
-    if area  [0][0] == 'X' and [1][0] == 'X' and [2][0] == 'X':
-        return "X"
-    if area  [0][1] == 'X' and [1][1] == 'X' and [2][1] == 'X':
-        return "X"
-    if area  [0][2] == 'X' and [1][2] == 'X' and [2][2] == 'X':
+    if area  [2][0] == 'X' and area [2][1] == 'X' and area [2][2] == 'X':
         return "X"
 
-    if area  [0][0] == 'X' and [1][1] == 'X' and [2][2] == 'X':
+    if area  [0][0] == 'X' and area [1][0] == 'X' and area [2][0] == 'X':
         return "X"
-    if area  [0][2] == 'X' and [1][1] == 'X' and [2][0] == 'X':
+    if area  [0][1] == 'X' and area [1][1] == 'X' and area [2][1] == 'X':
+        return "X"
+    if area  [0][2] == 'X' and area [1][2] == 'X' and area [2][2] == 'X':
         return "X"
 
-    if area[0][0] == 'O' and [0][1] == 'O' and [0][2] == 'O':
+    if area  [0][0] == 'X' and area [1][1] == 'X' and area [2][2] == 'X':
+        return "X"
+    if area  [0][2] == 'X' and area [1][1] == 'X' and area [2][0] == 'X':
+        return "X"
+
+    if area [0][0] == 'O' and area [0][1] == 'O' and area [0][2] == 'O':
         return 'O'
-    if area[1][0] == 'O' and [1][1] == 'O' and [1][2] == 'O':
+    if area [1][0] == 'O' and area [1][1] == 'O' and area [1][2] == 'O':
         return 'O'
-    if area[2][0] == 'O' and [2][1] == 'O' and [2][2] == 'O':
+    if area [2][0] == 'O' and area [2][1] == 'O' and area [2][2] == 'O':
         return 'O'
 
-    if area[0][0] == 'O' and [1][0] == 'O' and [2][0] == 'O':
+    if area [0][0] == 'O' and area [1][0] == 'O' and area [2][0] == 'O':
         return 'O'
-    if area[0][1] == 'O' and [1][1] == 'O' and [2][1] == 'O':
+    if area [0][1] == 'O' and area [1][1] == 'O' and area [2][1] == 'O':
         return'O'
-    if area[0][2] == 'O' and [1][2] == 'O' and [2][2] == 'O':
+    if area [0][2] == 'O' and area [1][2] == 'O' and area [2][2] == 'O':
         return 'O'
 
-    if area[0][0] == 'O' and [1][1] == 'O' and [2][2] == 'O':
+    if area [0][0] == 'O' and area [1][1] == 'O' and area [2][2] == 'O':
         return 'O'
-    if area[0][2] == 'O' and [1][1] == 'O' and [2][0] == 'O':
+    if area [0][2] == 'O' and area [1][1] == 'O' and area [2][0] == 'O':
         return 'O'
 
     return '*'
