@@ -1,4 +1,4 @@
-'''
+
 # Функция для проверки выигрыша
 def check_winner(board):
     # Проверяем строки
@@ -18,7 +18,7 @@ def check_winner(board):
     if diag2.count('X') == 3 or diag2.count('O') == 3:
         return True
     return False
-'''
+
 
 def drow_area():
     for i in area:
@@ -44,5 +44,36 @@ for turn in range (1 , 10):
         area [row] [column] = turn_char
     else:
         print('Ячейка занята , Вы пропускаете ход! ')
+        drow_area()
         continue
     drow_area()
+''''''
+
+def draw_area():
+    for i in area:
+        print(*i)
+    print()
+
+area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
+print('Давайте сыграем в крестики нолики:')
+print('----------------------------------')
+draw_area()
+
+for turn in range(1, 10):
+    print(f'Ход  : {turn}')
+    if turn % 2 == 0:
+        turn_char = "0"
+        print("Ход второго игрока")
+    else:
+        turn_char = 'Х'
+        print("Ход первого игрока")
+
+    row = int(input('Введите номер по горизонтали (1, 2, 3): ')) - 1
+    column = int(input('Введите номер по вертикали (1, 2, 3): ')) - 1
+    if area[row][column] == '*':
+        area[row][column] = turn_char
+    else:
+        print('Ячейка занята, Вы пропускаете ход!')
+        draw_area()
+        continue
+    draw_area()
